@@ -1,7 +1,8 @@
 apiVersion: init.hello.com/v1alpha1
 kind: Hello
 metadata:
-  name: hello-sample
+  name: hey
 spec:
-  # Add fields here
-  foo: bar
+  image: gcr.io/google-samples/node-hello:1.0
+  replica: 1
+  

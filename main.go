@@ -20,6 +20,7 @@ import (
 	"flag"
 	"os"
 
+	routev1 "github.com/openshift/api/route/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
@@ -64,6 +65,12 @@ func main() {
 	})
 	if err != nil {
 		setupLog.Error(err, "unable to start manager")
+		os.Exit(1)
+	}
+
+	//Add route scheme
+	if err := routev1.AddToScheme(mgr.GetScheme()); err != nil {
+		setupLog.Error(err, "")
 		os.Exit(1)
 	}
 
