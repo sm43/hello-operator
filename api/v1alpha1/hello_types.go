@@ -20,22 +20,15 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
-// NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
-
 // HelloSpec defines the desired state of Hello
 type HelloSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of Hello. Edit Hello_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Image   string `json:"image"`
+	Replica int32  `json:"replica"`
 }
 
 // HelloStatus defines the observed state of Hello
 type HelloStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	Status string `json:"status"`
 }
 
 // +kubebuilder:object:root=true
